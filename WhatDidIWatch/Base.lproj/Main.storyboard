@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AddViewController" customModule="WhatDidIWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tkf-HW-GsE" userLabel="ContainerView">
+                                <rect key="frame" x="20" y="62" width="400" height="870"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film/Dizi Ekle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geM-Ht-87d">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="52.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="44"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="szp-vL-b3a" userLabel="FormView">
+                                        <rect key="frame" x="0.0" y="194.66666666666671" width="400" height="439.33333333333326"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VmX-6b-VjP" userLabel="ImdbInputView">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="63.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imdb Kodu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fs-Vi-yAo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Imdb kodu ile bul" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Si-ZJ-J1S">
+                                                        <rect key="frame" x="0.0" y="29.666666666666629" width="400" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="imdbIdTextFieldEditingChangedWith_sender:" destination="BYZ-38-t0r" eventType="editingChanged" id="2rD-hu-1kZ"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="18i-qh-UM6" userLabel="NameInputView">
+                                                <rect key="frame" x="0.0" y="83.666666666666629" width="400" height="63.666666666666657"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film/Dizi Adı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5e-NC-ASc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Film ya da dizini ekle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3E-RX-PBy">
+                                                        <rect key="frame" x="0.0" y="29.666666666666686" width="400" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="nameTextFieldEditingChangedWith_sender:" destination="BYZ-38-t0r" eventType="editingChanged" id="OYZ-Af-VU8"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0vS-WO-lOt" userLabel="TypeInputView">
+                                                <rect key="frame" x="0.0" y="167.33333333333331" width="400" height="60.666666666666657"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Türü" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-UQ-LXt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-f0-GwD">
+                                                        <rect key="frame" x="0.0" y="29.666666666666686" width="400" height="32"/>
+                                                        <segments>
+                                                            <segment title="Film"/>
+                                                            <segment title="Dizi"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="watchedTypeSegmentedControlValueChangedWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="UGC-AD-uj3"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ymQ-vG-eeV" userLabel="CurrentSituationInputView">
+                                                <rect key="frame" x="0.0" y="247.99999999999997" width="400" height="60.666666666666657"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nerede Bıraktım" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97r-B1-QG8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="XhZ-In-qNb">
+                                                        <rect key="frame" x="0.0" y="29.666666666666686" width="400" height="32"/>
+                                                        <segments>
+                                                            <segment title="Devam Edecem"/>
+                                                            <segment title="Tamamladım"/>
+                                                            <segment title="Bir Sonrakim"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="watchedStatusSegmentedControlValueChangedWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="9co-Rz-iIh"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-RR-rsE" userLabel="RateInputView">
+                                                <rect key="frame" x="0.0" y="328.66666666666669" width="400" height="59.666666666666686"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puanım" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY4-Jr-keO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CVb-qi-h10" userLabel="SliderGroupView">
+                                                        <rect key="frame" x="0.0" y="29.666666666666629" width="400" height="30"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-Nx-y8X">
+                                                                <rect key="frame" x="-2" y="0.0" width="360" height="31"/>
+                                                                <connections>
+                                                                    <action selector="watchedRatingSliderValueChangedWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="J44-LC-oYN"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zx-R2-Lp6">
+                                                                <rect key="frame" x="376" y="4.3333333333333712" width="24" height="21.666666666666668"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="4iA-Fb-Ufd"/>
+                                                                </constraints>
+                                                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7D9-MB-65k" userLabel="WillIWatchInputView">
+                                                <rect key="frame" x="0.0" y="408.33333333333331" width="400" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tekrar İzlerim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXw-At-g6W">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-vG-trz">
+                                                        <rect key="frame" x="351" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="watchwillAgainSwitchValueChangedWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="fZe-AV-BVn"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FOz-K8-eAD" userLabel="ButtonGroupView">
+                                        <rect key="frame" x="0.0" y="776" width="400" height="94"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfw-88-7AL">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="51.666666666666664"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Not Al" cornerStyle="capsule" buttonSize="large">
+                                                    <imageReference key="image" image="popcorn.fill" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="semibold"/>
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addWatchedButtonTappedWith_addButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6et-LU-3lo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lL-Jo-KGk">
+                                                <rect key="frame" x="0.0" y="59.666666666666629" width="400" height="34.333333333333343"/>
+                                                <edgeInsets key="layoutMargins" top="12" left="8" bottom="12" right="8"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Yeni Filme Hazırla"/>
+                                                <connections>
+                                                    <action selector="clearWatchedAreaButtonTappedWith_clearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="akI-R7-EPc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Tkf-HW-GsE" secondAttribute="bottom" constant="24" id="4iT-UJ-Vwn"/>
+                            <constraint firstItem="Tkf-HW-GsE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GBy-Cd-uEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tkf-HW-GsE" secondAttribute="trailing" constant="20" id="Tfi-mp-Sys"/>
+                            <constraint firstItem="Tkf-HW-GsE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="62" id="YW9-wh-CIB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imdbIdTextField" destination="1Si-ZJ-J1S" id="RPf-Xf-aJz"/>
+                        <outlet property="nameTextField" destination="l3E-RX-PBy" id="N4m-Oa-ss5"/>
+                        <outlet property="watchedAddButton" destination="gfw-88-7AL" id="qST-Lu-gxX"/>
+                        <outlet property="watchedAreaClearButton" destination="7lL-Jo-KGk" id="iOX-ND-sf9"/>
+                        <outlet property="watchedRatingLabel" destination="3zx-R2-Lp6" id="K3A-ON-MZj"/>
+                        <outlet property="watchedRatingSlider" destination="2I0-Nx-y8X" id="vYc-6i-ppn"/>
+                        <outlet property="watchedStatusSegmentedControl" destination="XhZ-In-qNb" id="Zxj-Kd-p5H"/>
+                        <outlet property="watchedTypeSegmentedControl" destination="Psm-f0-GwD" id="QBn-Gh-BC2"/>
+                        <outlet property="willWatchSwitch" destination="rmY-vG-trz" id="K6B-h4-bBD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66.818181818181827" y="3.1380753138075317"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="popcorn.fill" catalog="system" width="98" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
