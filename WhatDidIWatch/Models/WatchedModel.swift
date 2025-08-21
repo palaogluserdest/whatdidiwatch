@@ -7,22 +7,14 @@
 
 import Foundation
 
-enum WatchedType: Int, Codable {
-    case movie = 0
-    case series = 1
+enum WatchedType: Int {
+    case movie
+    case series
 }
 
-enum WatchedStatus: Int, Codable {
-    case continiuous = 0
-    case completed = 1
-    case leaveWatched = 2
-}
-
-struct WatchedModel {
-    var imdbID: String
-    var name: String
-    var type: WatchedType.RawValue
-    var status: WatchedStatus.RawValue
-    var rate: Int
-    var maybeWatch: Bool
+enum WatchedStatus: Int {
+    case ongoing
+    case completed
+    case nextWatch
+    
 }

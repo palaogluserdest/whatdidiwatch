@@ -8,14 +8,7 @@
 import UIKit
 
 class AddViewController: UIViewController {
-    var watched = WatchedModel(
-        imdbID: "",
-        name: "",
-        type: WatchedType.movie.rawValue,
-        status: WatchedStatus.completed.rawValue,
-        rate: 0,
-        maybeWatch: false
-    )
+    
 
     // MARK: - Elements
 
@@ -28,88 +21,101 @@ class AddViewController: UIViewController {
     @IBOutlet var watchedAddButton: UIButton!
     @IBOutlet var watchedAreaClearButton: UIButton!
     @IBOutlet var watchedRatingLabel: UILabel!
+    
+    
+    private var viewModel: AddViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewCostumization()
+        let config = AddViewModel.Configuration(watchedType: .movie, watchedStatus: .completed, rating: 5, maybeWatched: false)
+        
+        viewModel = AddViewModel(configuration: config)
+        updateView()
+        
     }
 
     // MARK: - Actions
 
     @IBAction func addWatchedButtonTapped(_addButton: UIButton) {
-        print("\(watched)")
+        viewModel.save()
     }
 
     @IBAction func clearWatchedAreaButtonTapped(_clearButton: UIButton) {
-        imdbIdTextField.text = ""
-        nameTextField.text = ""
-        watchedTypeSegmentedControl.selectedSegmentIndex = 0
-        watchedStatusSegmentedControl.selectedSegmentIndex = 1
-        watchedRatingSlider.value = 5
-        watchedRatingLabel.text = "5"
-        willWatchSwitch.isOn = false
+        viewModel.reset()
+        updateView()
     }
 
     @IBAction func imdbIdTextFieldEditingChanged(_sender: UITextField) {
-        watchedButtonsEnableDisable()
-        watched.imdbID = imdbIdTextField.text ?? ""
+        viewModel.imdbId = imdbIdTextField.text ?? ""
+        updateView()
+        
     }
 
     @IBAction func nameTextFieldEditingChanged(_sender: UITextField) {
-        watchedButtonsEnableDisable()
-        watched.name = nameTextField.text ?? ""
+        viewModel.watchedName = nameTextField.text ?? ""
+        updateView()
+        
     }
 
     @IBAction func watchedTypeSegmentedControlValueChanged(_sender: UISegmentedControl) {
         switch watchedTypeSegmentedControl.selectedSegmentIndex {
-        case 0:
-            watched.type = WatchedType.movie.rawValue
-        default:
-            watched.type = WatchedType.series.rawValue
+            case 0:
+                viewModel.watchedType = .movie
+            case 1:
+                viewModel.watchedType = .series
+            default:
+                viewModel.watchedType = .movie
         }
+        updateView()
+        
     }
 
     @IBAction func watchedStatusSegmentedControlValueChanged(_sender: UISegmentedControl) {
         switch watchedStatusSegmentedControl.selectedSegmentIndex {
         case 0:
-            watched.status = WatchedStatus.continiuous.rawValue
+            viewModel.watchedStatus = .ongoing
         case 1:
-            watched.status = WatchedStatus.completed.rawValue
+            viewModel.watchedStatus = .completed
         case 2:
-            watched.status = WatchedStatus.leaveWatched.rawValue
+            viewModel.watchedStatus = .nextWatch
         default:
-            break
+            viewModel.watchedStatus = .completed
         }
+        updateView()
     }
 
     @IBAction func watchedRatingSliderValueChanged(_sender: UISlider) {
-        let senderValue = Int(watchedRatingSlider.value)
-        watchedRatingLabel.text = "\(senderValue)"
-        watched.rate = Int(watchedRatingSlider.value)
+        viewModel.rating = Int(watchedRatingSlider.value)
+        updateView()
     }
 
     @IBAction func watchwillAgainSwitchValueChanged(_sender: UISwitch) {
-        watched.maybeWatch.toggle()
+        viewModel.maybeWatched = willWatchSwitch.isOn
+        updateView()
     }
 
     // MARK: - Helper Functions
 
-    func viewCostumization() {
-        watchedRatingLabel.text = "5"
-        watchedRatingSlider.value = 5
-        willWatchSwitch.isOn = false
-    }
-
-    func watchedButtonsEnableDisable() {
-        guard let imdbText = imdbIdTextField.text, !imdbText.isEmpty,
-              let nameText = nameTextField.text, !nameText.isEmpty else {
+    func updateView() {
+        
+        watchedTypeSegmentedControl.selectedSegmentIndex = viewModel.watchedType.rawValue
+        watchedStatusSegmentedControl.selectedSegmentIndex = viewModel.watchedStatus.rawValue
+        willWatchSwitch.isOn = viewModel.maybeWatched ?? false
+        watchedRatingSlider.value = Float(viewModel.rating ?? 0)
+        watchedRatingLabel.text = "\(viewModel.rating ?? 0)"
+        
+        do {
+            try viewModel.validate()
+            
+            watchedAddButton.isEnabled = true
+            watchedAreaClearButton.isEnabled = true
+        } catch {
             watchedAddButton.isEnabled = false
             watchedAreaClearButton.isEnabled = false
-            return
         }
-
-        watchedAddButton.isEnabled = true
-        watchedAreaClearButton.isEnabled = true
+        
     }
+
+
 }
